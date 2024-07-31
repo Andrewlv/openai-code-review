@@ -1,0 +1,2 @@
+Main-Class: com.andrew.sdk.OpenAiCodeReview
+Manifest-Version: 1.0
