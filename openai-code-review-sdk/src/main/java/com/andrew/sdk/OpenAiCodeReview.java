@@ -114,7 +114,7 @@ public class OpenAiCodeReview {
             dataFolder.mkdirs();
         }
 
-        String fileName = generateRandomString(12) + "md";
+        String fileName = generateRandomString(12) + ".md";
         File newFile = new File(dataFolder, fileName);
         try (FileWriter writer = new FileWriter(newFile)) {
             writer.write(log);
