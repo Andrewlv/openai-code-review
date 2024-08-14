@@ -118,8 +118,8 @@ public class GitCommand {
         git.commit().setMessage("Add new file via Github Action").call();
         git.push().setCredentialsProvider(new UsernamePasswordCredentialsProvider(githubToken, "")).call();
 
-        logger.info("openai-code-review git commit and push done!");
+        logger.info("openai-code-review git commit and push done! {}", fileName);
 
-        return githubReviewLogUri + "blob/master" + dateFolderName + "/" + fileName;
+        return githubReviewLogUri + "/blob/master" + dateFolderName + "/" + fileName;
     }
 }
