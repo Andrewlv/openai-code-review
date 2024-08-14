@@ -64,7 +64,6 @@ public class OpenAiCodeReviewService extends AbstractOpenaiCodeReviewService {
             }
         });
 
-
         ChatCompletionSyncResponseDTO completions = openAI.completions(chatCompletionRequest);
         ChatCompletionSyncResponseDTO.Message message = completions.getChoices().get(0).getMessage();
         return message.getContent();

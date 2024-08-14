@@ -28,7 +28,7 @@ public class ChatGLM implements IOpenAI {
     public ChatCompletionSyncResponseDTO completions(ChatCompletionRequestDTO requestDTO) throws Exception {
         String token = BearerTokenUtils.getToken(apiKeySecret);
 
-        URL url = new URL("https://open.bigmodel.cn/api/paas/v4/chat/completions");
+        URL url = new URL(apiHost);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         connection.setRequestMethod("POST");

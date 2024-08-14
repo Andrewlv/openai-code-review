@@ -38,17 +38,6 @@ public class GitCommand {
         this.message = message;
     }
 
-    public Logger getLogger() {
-        return logger;
-    }
-
-    public String getGithubReviewLogUri() {
-        return githubReviewLogUri;
-    }
-
-    public String getGithubToken() {
-        return githubToken;
-    }
 
     public String getProject() {
         return project;
@@ -76,7 +65,7 @@ public class GitCommand {
         logReader.close();
         logProcess.waitFor();
 
-        ProcessBuilder diffProcessBuilder = new ProcessBuilder("git", "diff", latestCommitHash + "^" + latestCommitHash);
+        ProcessBuilder diffProcessBuilder = new ProcessBuilder("git", "diff", latestCommitHash + "^", latestCommitHash);
         diffProcessBuilder.directory(new File("."));
         Process diffProcess = diffProcessBuilder.start();
 

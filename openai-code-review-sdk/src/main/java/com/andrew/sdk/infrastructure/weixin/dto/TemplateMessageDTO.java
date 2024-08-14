@@ -10,9 +10,6 @@ public class TemplateMessageDTO {
     private String url = "https://weixin.qq.com";
     private Map<String, Map<String, String>> data = new HashMap<>();
 
-    public TemplateMessageDTO() {
-    }
-
     public TemplateMessageDTO(String touser, String template_id) {
         this.touser = touser;
         this.template_id = template_id;
