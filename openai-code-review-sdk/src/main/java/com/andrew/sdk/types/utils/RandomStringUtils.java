@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class RandomStringUtils {
 
-    public static String generateRandomString(int length) {
+    public static String randomNumeric(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();
         StringBuilder sb = new StringBuilder(length);

@@ -91,24 +91,28 @@ public class GitCommand {
                 .setCredentialsProvider(new UsernamePasswordCredentialsProvider(githubToken, ""))
                 .call();
 
+        // 创建分支
         String dateFolderName = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-        File dataFolder = new File("repo/" + dateFolderName);
-        if (!dataFolder.exists()) {
-            dataFolder.mkdirs();
+        File dateFolder = new File("repo/" + dateFolderName);
+        if (!dateFolder.exists()) {
+            dateFolder.mkdirs();
         }
 
-        String fileName = project + "-" + branch + "-" + author + "-" + System.currentTimeMillis() + "-" + RandomStringUtils.generateRandomString(4) + ".md";
-        File newFile = new File(dataFolder, fileName);
+        String fileName = project + "-" + branch + "-" + author + System.currentTimeMillis() + "-" + RandomStringUtils.randomNumeric(4) + ".md";
+        File newFile = new File(dateFolder, fileName);
         try (FileWriter writer = new FileWriter(newFile)) {
             writer.write(recommend);
         }
 
+        // 提交内容
         git.add().addFilepattern(dateFolderName + "/" + fileName).call();
-        git.commit().setMessage("Add new file via Github Action").call();
+        git.commit().setMessage("add code review new file" + fileName).call();
         git.push().setCredentialsProvider(new UsernamePasswordCredentialsProvider(githubToken, "")).call();
 
         logger.info("openai-code-review git commit and push done! {}", fileName);
 
         return githubReviewLogUri + "/blob/master/" + dateFolderName + "/" + fileName;
     }
+
+
 }
