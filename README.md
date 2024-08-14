@@ -2,6 +2,8 @@
 
 提交合并分支的代码，则触发代码评审，并写入评审日志文件。完成后发送公众号模板消息通知，点击<详情>查看评审细节。
 
+![img_2.png](img_2.png)
+
 ## 使用方法
 基于 GitHub Actions + ChatGLM + Git/GitHub + 公众号模板消息 串联出从代码提交获取通知，Git 检出分支变化，在使用 ChatGLM 进行代码和写入日志，再发送消息通知完成整个链路。
 
@@ -29,6 +31,17 @@
 5.1 配置参数
 
 地址：https://github.com/xfg-studio-project/openai-code-review-test/settings/secrets/actions - 换成你的项目工程，进入到 Setting -> Secrets and variables -> Actions -> Repository secrets -> New repository secret
+
+| Name      | Secret                                                |
+|-----------|-------------------------------------------------------|
+| CHATGLM_APIHOST    | https://open.bigmodel.cn/api/paas/v4/chat/completions |
+| CHATGLM_APIKEYSECRET | yours                                                 |
+| CODE_REVIEW_LOG_URI | yours                                                 |
+| CODE_TOKEN | yours                                                 |
+| WEIXIN_APPID | yours                                                 |
+| WEIXIN_SECRET | yours                                                 |
+| WEIXIN_TEMPLATE_ID | yours                                                 |
+| WEIXIN_TOUSER | yours                                                 |
 
 5.2 配置脚本
 ![img.png](img.png)
